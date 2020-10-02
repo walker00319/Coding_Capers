@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bingo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <hr>
+  <div class="container">
+    <div id="Control">
+      <button onclick="draw()">Draw Number</button> <button onclick="newGame()">New Game</button><button
+        onclick="ChangeSpeech()" id="speech">Turn Speech ON</button><input type="number" id="num"><button id="start_interval_draw" onclick="setAutoDraw()">Start</button>
+    </div>
+    <div class="row">
+
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-baqh">B</th>
+            <th class="tg-baqh">I</th>
+            <th class="tg-baqh">N</th>
+            <th class="tg-baqh">G</th>
+            <th class="tg-baqh">O</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-baqh" id="B1">1</td>
+            <td class="tg-baqh" id="I16">16</td>
+            <td class="tg-baqh" id="N31">31</td>
+            <td class="tg-baqh" id="G46">46</td>
+            <td class="tg-baqh" id="O61">61</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B2">2</td>
+            <td class="tg-baqh" id="I17">17</td>
+            <td class="tg-baqh" id="N32">32</td>
+            <td class="tg-baqh" id="G47">47</td>
+            <td class="tg-baqh" id="O62">62</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B3">3</td>
+            <td class="tg-baqh" id='I18'>18</td>
+            <td class="tg-baqh" id="N33">33</td>
+            <td class="tg-baqh" id="G48">48</td>
+            <td class="tg-baqh" id="O63">63</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B4">4</td>
+            <td class="tg-baqh" id="I19">19</td>
+            <td class="tg-baqh" id="N34">34</td>
+            <td class="tg-baqh" id="G49">49</td>
+            <td class="tg-baqh" id="O64">64</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B5">5</td>
+            <td class="tg-baqh" id="I20">20</td>
+            <td class="tg-baqh" id="N35">35</td>
+            <td class="tg-baqh" id="G50">50</td>
+            <td class="tg-baqh" id="O65">65</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B6">6</td>
+            <td class="tg-baqh" id="I21">21</td>
+            <td class="tg-baqh" id="N36">36</td>
+            <td class="tg-baqh" id="G51">51</td>
+            <td class="tg-baqh" id="O66">66</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B7">7</td>
+            <td class="tg-baqh" id="I22">22</td>
+            <td class="tg-baqh" id="N37">37</td>
+            <td class="tg-baqh" id="G52">52</td>
+            <td class="tg-baqh" id="O67">67</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B8">8</td>
+            <td class="tg-baqh" id="I23">23</td>
+            <td class="tg-baqh" id="N38">38</td>
+            <td class="tg-baqh" id="G53">53</td>
+            <td class="tg-baqh" id="O68">68</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B9">9</td>
+            <td class="tg-baqh" id="I24">24</td>
+            <td class="tg-baqh" id="N39">39</td>
+            <td class="tg-baqh" id="G54">54</td>
+            <td class="tg-baqh" id="O69">69</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B10">10</td>
+            <td class="tg-baqh" id="I25">25</td>
+            <td class="tg-baqh" id="N40">40</td>
+            <td class="tg-baqh" id="G55">55</td>
+            <td class="tg-baqh" id="O70">70</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B11">11</td>
+            <td class="tg-baqh" id="I26">26</td>
+            <td class="tg-baqh" id="N41">41</td>
+            <td class="tg-baqh" id="G56">56</td>
+            <td class="tg-baqh" id="O71">71</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B12">12</td>
+            <td class="tg-baqh" id="I27">27</td>
+            <td class="tg-baqh" id="N42">42</td>
+            <td class="tg-baqh" id="G57">57</td>
+            <td class="tg-baqh" id="O72">72</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B13">13</td>
+            <td class="tg-baqh" id="I28">28</td>
+            <td class="tg-baqh" id="N43">43</td>
+            <td class="tg-baqh" id="G58">58</td>
+            <td class="tg-baqh" id="O73">73</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B14">14</td>
+            <td class="tg-baqh" id="I29">29</td>
+            <td class="tg-baqh" id="N44">44</td>
+            <td class="tg-baqh" id="G59">59</td>
+            <td class="tg-baqh" id="O74">74</td>
+          </tr>
+          <tr>
+            <td class="tg-baqh" id="B15">15</td>
+            <td class="tg-baqh" id="I30">30</td>
+            <td class="tg-baqh" id="N45">45</td>
+            <td class="tg-baqh" id="G60">60</td>
+            <td class="tg-baqh" id="O75">75</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+
+      <div id="col">
+        <p id="CountDrawn"></p>
+        <p id="DrawHist">Draw History<br></p>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
