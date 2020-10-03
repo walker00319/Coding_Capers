@@ -21,7 +21,9 @@ function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
+     var prog=0
     while (0 !== currentIndex) {
+        console.log("CurrentIndex: "+currentIndex)
 
         // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -35,7 +37,18 @@ function shuffle(array) {
 
     return array;
 }
-
+function updateProgress(prog){
+    var curprog = 52 - prog
+    document.getElementById("shffle_prog").setAttribute("value",curprog)
+    document.getElementById("shffle_prog").innerText(curprog+"%")
+}
 function Draw(){
-document.get
+    if(currindex == shuffledfiles.length - 1){
+        console.log("End of Card list\n")
+        currindex =0
+        shuffledfiles = shuffle(filelist)
+    }else{
+document.getElementById("card").setAttribute("src",shuffledfiles[currindex])
+console.log("Current Pic: " + shuffledfiles[currindex] + "\n"+ "Pic " + currindex + " of " + shuffledfiles.length -1 )
+currindex++;}
 }
